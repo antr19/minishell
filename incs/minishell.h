@@ -133,7 +133,7 @@ char	**lst_to_arr_str(t_list *env, int size);
 /*
 ** utils
 */
-void	deal_with_signals(t_main **main);
+void	deal_with_signals();
 int		change_to_spaces_and_check_quotes(char **str);
 int		get_word_len(char *str, int i, char c, int flag);
 void	make_env_list(t_main **main, char **envp);

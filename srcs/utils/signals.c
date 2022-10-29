@@ -30,11 +30,10 @@ static void	signal_handler(int sig, siginfo_t *info, void *context)
 	}
 }
 
-void	deal_with_signals(t_main **main)
+void	deal_with_signals()
 {
 	struct sigaction	act;
 
-	(void)main;
 	act.sa_flags = SA_SIGINFO;
 	act.sa_sigaction = signal_handler;
 	sigaction(SIGINT, &act, 0);

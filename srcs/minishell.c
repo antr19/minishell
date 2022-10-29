@@ -48,13 +48,11 @@ static void	shlvl_init(t_main **main)
 	shlvl->content = ft_strjoin("SHLVL=", ft_itoa(level + 1));
 }
 
-static void	preparation(int argc, char **argv, t_main *main, char **envp)
+static void	preparation(t_main *main, char **envp)
 {
-	(void)argv;
-	(void)argc;
 	make_env_list(&main, envp);
 	shlvl_init(&main);
-	deal_with_signals(&main);
+	deal_with_signals();
 	main->exit_f = 0;
 }
 
@@ -66,7 +64,7 @@ int	main(int argc, char **argv, char **envp)
 	main = (t_main *)malloc(sizeof(t_main));
 	if (main == NULL)
 		return (EXIT_FAILURE);
-	preparation(argc, argv, main, envp);
+	preparation(main, envp);
 	while (main->exit_f == 0)
 	{
 		input = readline("minish-1.0$ ");

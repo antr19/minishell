@@ -92,5 +92,4 @@ int	ft_cd(t_main *main, char **args)
 	if (ft_strcmp(args[1], "-") == 0)
 		return (cd_to_arg(main, getenv("OLDPWD")));
 	return (cd_to_arg(main, args[1]));
-	return (0);
 }
